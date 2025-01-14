@@ -4,16 +4,39 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        orbitron: ['Orbitron', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+        body: ['Plus Jakarta Sans', 'sans-serif'],
       },
       colors: {
-        neon: {
-          blue: '#00fff9',
-          purple: '#ff00ff',
-          pink: '#ff2a6d',
-          yellow: '#f9f002',
+        primary: {
+          900: '#0B1221',
+          800: '#0F1A2E',
+          700: '#142339',
+          600: '#1B2D47',
+          500: '#234B78',
         },
+        accent: {
+          500: '#00E5FF',
+          400: '#33EAFF',
+          300: '#66EFFF',
+        },
+        highlight: {
+          500: '#7C3AED',
+          400: '#9061FF',
+          300: '#A585FF',
+        },
+        neutral: {
+          900: '#0A0A0A',
+          800: '#1A1A1A',
+          700: '#2A2A2A',
+          600: '#3D3D3D',
+          500: '#4D4D4D',
+          400: '#666666',
+          300: '#808080',
+          200: '#999999',
+          100: '#B3B3B3',
+          50: '#F5F5F5',
+        }
       },
       container: {
         center: true,
@@ -26,7 +49,7 @@ export default {
         },
       },
       animation: {
-        'text-shimmer': 'text-shimmer 2.5s ease-in-out infinite',
+        'text-shimmer': 'text-shimmer 3s ease-in-out infinite',
       },
       keyframes: {
         'text-shimmer': {
