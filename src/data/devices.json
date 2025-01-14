@@ -1,0 +1,25 @@
+{
+  "devices": [
+    {
+      "name": "Redmi Note 5 Pro",
+      "codename": "whyred",
+      "maintainer": "Arijit Saha",
+      "status": "Official",
+      "telegram": "https://t.me/DarkElixir_Whyred"
+    },
+    {
+      "name": "POCO F1",
+      "codename": "beryllium",
+      "maintainer": "Guri~",
+      "status": "Official",
+      "telegram": "https://t.me/DarkElixir_Beryllium"
+    },
+    {
+      "name": "Redmi Note 7 Pro",
+      "codename": "violet",
+      "maintainer": "Ultron",
+      "status": "Official",
+      "telegram": "https://t.me/DarkElixir_Violet"
+    }
+  ]
+}

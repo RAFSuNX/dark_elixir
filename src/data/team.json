@@ -1,0 +1,45 @@
+{
+  "team": [
+    {
+      "name": "Arijit Saha",
+      "role": "FOUNDER / CEO",
+      "description": "Owner of dark Elixir and Developer of whyred and many more devices.",
+      "photo": "https://avatars.githubusercontent.com/arijit",
+      "socials": {
+        "github": "https://github.com/arijitsaha",
+        "telegram": "https://t.me/arijit_saha"
+      }
+    },
+    {
+      "name": "Guri~",
+      "role": "DEVELOPER",
+      "description": "Whyred Developer",
+      "photo": "https://avatars.githubusercontent.com/guri",
+      "socials": {
+        "github": "https://github.com/guri",
+        "telegram": "https://t.me/guri_dev"
+      }
+    },
+    {
+      "name": "Ultron",
+      "role": "TESTER",
+      "description": "Whyred Rom Tester and gamer",
+      "photo": "https://avatars.githubusercontent.com/ultron",
+      "socials": {
+        "telegram": "https://t.me/ultron_gaming",
+        "discord": "https://discord.com/users/ultron"
+      }
+    },
+    {
+      "name": "Ashish Technical services",
+      "role": "YOUTUBER",
+      "description": "A Youtuber",
+      "photo": "https://avatars.githubusercontent.com/ashish",
+      "socials": {
+        "instagram": "https://instagram.com/ashish.tech",
+        "youtube": "https://youtube.com/@ashishtech",
+        "telegram": "https://t.me/ashish_tech"
+      }
+    }
+  ]
+}
