@@ -1,0 +1,29 @@
+{
+  "social": {
+    "telegram": {
+      "group": "https://t.me/DarkElixirOfficial",
+      "channel": "https://t.me/DarkElixirUpdates"
+    },
+    "github": "https://github.com/DarkElixir-OS",
+    "discord": "https://discord.gg/darkelixir",
+    "youtube": "https://youtube.com/@DarkElixir"
+  },
+  "legal": {
+    "privacy": "/privacy-policy",
+    "terms": "/terms-of-service"
+  },
+  "sections": {
+    "home": "#home",
+    "features": "#features",
+    "devices": "#devices",
+    "roms": "#roms",
+    "team": "#team",
+    "donate": "#donate"
+  },
+  "features": {
+    "stock": "#explore-stock",
+    "performance": "#explore-performance",
+    "customization": "#explore-customization"
+  },
+  "contact": "#contact"
+}
