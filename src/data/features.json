@@ -3,19 +3,19 @@
     {
       "title": "Stock Experience",
       "description": "Experience Android in its purest form with our enhanced AOSP-based system. We've carefully crafted every detail to deliver the perfect balance of stock authenticity and Dark Elixir innovation.",
-      "image": "https://images.unsplash.com/photo-1678911820864-e2c567c655d7?auto=format&fit=crop&q=80&w=600&h=600",
+      "icon": "Zap",
       "link": "#explore-stock"
     },
     {
       "title": "Performance Boost",
       "description": "Unlock the true potential of your device with our advanced kernel optimizations and system tweaks. Experience smoother animations, faster app launches, and improved battery life.",
-      "image": "https://images.unsplash.com/photo-1585399000684-d2f72660f092?auto=format&fit=crop&q=80&w=600&h=600",
+      "icon": "Rocket",
       "link": "#explore-performance"
     },
     {
       "title": "Customization",
       "description": "Make your device truly yours with our extensive customization options. From system animations to status bar tweaks, the possibilities are endless.",
-      "image": "https://images.unsplash.com/photo-1581993192008-63e896f4f744?auto=format&fit=crop&q=80&w=600&h=600",
+      "icon": "Palette",
       "link": "#explore-customization"
     }
   ]

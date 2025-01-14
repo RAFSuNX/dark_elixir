@@ -1,0 +1,14 @@
+{
+  "download": {
+    "primary": {
+      "text": "Download Now",
+      "url": "https://download.darkelixir.dev",
+      "icon": "Download"
+    }
+  },
+  "colors": {
+    "primary": "#00E5FF",
+    "secondary": "#7C3AED",
+    "background": "#0A0A0A"
+  }
+}
