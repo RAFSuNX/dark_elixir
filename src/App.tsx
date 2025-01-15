@@ -215,7 +215,7 @@ export default function App() {
 
         {/* ROMs Section */}
         <section id="roms" className="container mx-auto px-4 py-24" data-animate>
-          <h2 className="section-title">Available ROMs</h2>
+          <h2 className="section-title">Supported ROMs</h2>
           <div className="max-w-4xl mx-auto">
             {romsData.roms.map((rom, index) => (
               <div 
