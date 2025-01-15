@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply text-neutral-50 font-body antialiased;
+    @apply text-neutral-50 font-body antialiased text-base;
     background-color: #000000;
     position: relative;
     overflow-x: hidden;
@@ -27,12 +27,83 @@
     animation: moveGradient 30s ease-in-out infinite;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display text-neutral-50 tracking-tight font-bold;
+  /* Typography Scale */
+  h1, .h1 {
+    @apply font-display text-h1 font-bold tracking-tight;
   }
 
+  h2, .h2 {
+    @apply font-display text-h2 font-bold tracking-tight;
+  }
+
+  h3, .h3 {
+    @apply font-display text-h3 font-bold tracking-tight;
+  }
+
+  h4, .h4 {
+    @apply font-display text-h4 font-semibold tracking-tight;
+  }
+
+  h5, .h5 {
+    @apply font-display text-h5 font-semibold tracking-tight;
+  }
+
+  /* Display Text */
+  .display-1 {
+    @apply font-display text-d1 font-bold tracking-tight;
+  }
+
+  .display-2 {
+    @apply font-display text-d2 font-bold tracking-tight;
+  }
+
+  .display-3 {
+    @apply font-display text-d3 font-bold tracking-tight;
+  }
+
+  /* Body Text */
+  .text-body-xl {
+    @apply text-xl leading-relaxed;
+  }
+
+  .text-body-lg {
+    @apply text-lg leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-base leading-relaxed;
+  }
+
+  .text-body-sm {
+    @apply text-sm leading-relaxed;
+  }
+
+  .text-body-xs {
+    @apply text-xs leading-relaxed;
+  }
+
+  /* Links */
+  a {
+    @apply text-accent-500 hover:text-accent-400 transition-colors duration-300;
+  }
+
+  /* Lists */
+  ul, ol {
+    @apply pl-6;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  /* Other base styles */
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
 
   ::-webkit-scrollbar {
@@ -50,16 +121,9 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-neutral-700;
   }
-
-  a, button {
-    @apply transition-all duration-300 ease-out;
-  }
-
-  a:hover, button:hover {
-    @apply transform scale-105;
-  }
 }
 
+/* Animations */
 @keyframes moveGradient {
   0% {
     transform: translate(0, 0) scale(1);
@@ -96,37 +160,6 @@
   }
 }
 
-@keyframes cardHover {
-  0% {
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-    box-shadow: 0 0 0 rgba(57, 255, 20, 0);
-  }
-  100% {
-    transform: translateY(-12px) scale(1.02);
-    filter: blur(0);
-    box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
-  }
-}
-
-@keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 5px rgba(57, 255, 20, 0.2),
-                0 0 10px rgba(57, 255, 20, 0.2),
-                0 0 15px rgba(57, 255, 20, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4),
-                0 0 20px rgba(57, 255, 20, 0.4),
-                0 0 30px rgba(57, 255, 20, 0.4);
-  }
-  100% {
-    box-shadow: 0 0 5px rgba(57, 255, 20, 0.2),
-                0 0 10px rgba(57, 255, 20, 0.2),
-                0 0 15px rgba(57, 255, 20, 0.2);
-  }
-}
-
 @keyframes loadingFadeOut {
   0% {
     opacity: 1;
@@ -139,6 +172,7 @@
   }
 }
 
+/* Loading Screen */
 .loading-screen {
   position: fixed;
   top: 0;
@@ -168,13 +202,13 @@
 }
 
 .welcome-text {
-  @apply text-neutral-400 font-display;
+  @apply text-neutral-400 font-display text-h2;
   animation: textReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
 .brand-text {
-  @apply text-6xl font-bold font-display;
+  @apply font-display text-d1 font-bold;
   background: linear-gradient(135deg, #39FF14, #FF0000);
   -webkit-background-clip: text;
   background-clip: text;
@@ -184,6 +218,7 @@
   opacity: 0;
 }
 
+/* Component Styles */
 .card {
   background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.4));
   backdrop-filter: blur(16px);
@@ -196,36 +231,16 @@
   @apply border-accent-500;
   background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.5));
   backdrop-filter: blur(24px);
-  animation: cardHover 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.card:hover .icon {
-  animation: glowPulse 2s infinite;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(57, 255, 20, 0.1);
 }
 
 .section-title {
-  @apply text-4xl font-display font-bold text-center mb-16;
+  @apply font-display text-h1 font-bold text-center mb-16;
   background: linear-gradient(135deg, #39FF14, #FF0000);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: textReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  opacity: 0;
-}
-
-.cyber-border {
-  background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.4));
-  backdrop-filter: blur(16px);
-  @apply relative border-2 border-neutral-800 rounded-lg;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform, box-shadow, border-color, background;
-}
-
-.cyber-border:hover {
-  @apply border-accent-500;
-  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.5));
-  backdrop-filter: blur(24px);
-  animation: cardHover 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 [data-animate] {

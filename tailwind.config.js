@@ -7,6 +7,24 @@ export default {
         display: ['Space Grotesk', 'sans-serif'],
         body: ['Plus Jakarta Sans', 'sans-serif'],
       },
+      fontSize: {
+        // Display typography
+        'd1': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'd2': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'd3': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        // Heading typography
+        'h1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'h2': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'h3': ['1.75rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'h4': ['1.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        'h5': ['1.25rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        // Body typography
+        'xl': ['1.25rem', { lineHeight: '1.6', letterSpacing: '0' }],
+        'lg': ['1.125rem', { lineHeight: '1.6', letterSpacing: '0' }],
+        'base': ['1rem', { lineHeight: '1.6', letterSpacing: '0' }],
+        'sm': ['0.875rem', { lineHeight: '1.6', letterSpacing: '0' }],
+        'xs': ['0.75rem', { lineHeight: '1.6', letterSpacing: '0' }],
+      },
       colors: {
         accent: {
           500: '#39FF14', // Neon Green
