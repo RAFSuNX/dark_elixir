@@ -13,11 +13,21 @@
     {
       "name": "Guri~",
       "role": "DEVELOPER",
-      "description": "Whyred Developer",
+      "description": "Whyred Developer & Previous Website Designer & Developer",
       "photo": "https://project-dark-elixir.web.app/images/Team/Guri~.jpg",
       "socials": {
         "github": "https://github.com/Mizugameza05",
         "telegram": "https://t.me/VISHNUVANSHI"
+      }
+    },
+    {
+      "name": "RAFSuNX",
+      "role": "DEVELOPER / DESIGNER",
+      "description": "Website Developer, Drawing Inspiration from Guri~",
+      "photo": "https://avatars.githubusercontent.com/u/128445052?v=4",
+      "socials": {
+        "github": "https://github.com/RAFSuNX/",
+        "telegram": "https://t.me/RAFSuNX"
       }
     },
     {
