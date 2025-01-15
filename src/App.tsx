@@ -327,11 +327,11 @@ export default function App() {
               </span>
             </h2>
             
-            <div className="cyber-border p-8">
+            <div className="bg-neutral-900/50 backdrop-blur-xl border border-accent-500/20 rounded-2xl p-8 hover:border-accent-500/40 transition-colors">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">Server Donation</h3>
-                  <p className="text-neutral-400 mb-6">
+                  <h3 className="text-2xl font-bold mb-4 text-accent-300">Server Donation</h3>
+                  <p className="text-neutral-300 mb-6">
                     Donating a server to developers working on custom ROMs can make a big difference. Custom 
                     ROM development needs powerful resources for compiling and testing code. By providing a 
                     server, you help speed up development, improve the quality of the ROMs, and enable more 
@@ -339,34 +339,34 @@ export default function App() {
                   </p>
                   
                   <div className="space-y-3">
-                    <h4 className="text-lg font-semibold text-accent-500 mb-2">What's included</h4>
+                    <h4 className="text-lg font-semibold text-accent-400 mb-2">What's included</h4>
                     <div className="flex items-center gap-2">
                       <Check className="w-5 h-5 text-accent-500" />
-                      <span className="text-neutral-300">32 core node</span>
+                      <span className="text-neutral-200">32 core node</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Check className="w-5 h-5 text-accent-500" />
-                      <span className="text-neutral-300">32GB ram</span>
+                      <span className="text-neutral-200">32GB ram</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Check className="w-5 h-5 text-accent-500" />
-                      <span className="text-neutral-300">1Tb storage</span>
+                      <span className="text-neutral-200">1Tb storage</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-neutral-800 p-8 rounded-lg flex flex-col justify-center">
+                <div className="bg-neutral-800/50 backdrop-blur-xl p-8 rounded-xl border border-accent-500/10 flex flex-col justify-center">
                   <div className="text-center mb-8">
-                    <p className="text-neutral-400 mb-4">Pay once, own it forever</p>
+                    <p className="text-neutral-300 mb-4">Pay once, own it forever</p>
                     <div className="text-5xl font-bold mb-2">
-                      <span className="text-white">$5</span>
+                      <span className="bg-gradient-to-r from-accent-500 to-accent-300 text-transparent bg-clip-text">$5</span>
                       <span className="text-sm text-neutral-400 ml-1">USD</span>
                     </div>
                   </div>
                   
                   <a 
                     href="#contact"
-                    className="bg-accent-500 text-neutral-900 py-3 px-6 rounded-lg text-center font-semibold hover:bg-accent-400 transition-colors"
+                    className="bg-accent-500 text-neutral-900 py-3 px-6 rounded-lg text-center font-semibold hover:bg-accent-400 transition-colors shadow-lg shadow-accent-500/20 hover:shadow-accent-500/30"
                   >
                     Contact us
                   </a>
