@@ -7,8 +7,8 @@
     }
   },
   "colors": {
-    "primary": "#00E5FF",
-    "secondary": "#7C3AED",
-    "background": "#0A0A0A"
+    "primary": "#39FF14",
+    "secondary": "#FF0000",
+    "background": "#000000"
   }
 }

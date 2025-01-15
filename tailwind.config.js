@@ -8,22 +8,15 @@ export default {
         body: ['Plus Jakarta Sans', 'sans-serif'],
       },
       colors: {
-        primary: {
-          900: '#0B1221',
-          800: '#0F1A2E',
-          700: '#142339',
-          600: '#1B2D47',
-          500: '#234B78',
-        },
         accent: {
-          500: '#00B5CC',
-          400: '#00C8E3',
-          300: '#33D9F0',
+          500: '#39FF14', // Neon Green
+          400: '#4DFF33',
+          300: '#66FF4D',
         },
         highlight: {
-          500: '#6B30D1',
-          400: '#7C45E3',
-          300: '#8D5AE6',
+          500: '#FF0000', // Neon Red
+          400: '#FF1A1A',
+          300: '#FF3333',
         },
         neutral: {
           900: '#000000',

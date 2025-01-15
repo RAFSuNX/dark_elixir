@@ -21,8 +21,8 @@
     bottom: 0;
     z-index: -1;
     background: 
-      radial-gradient(circle at 15% 15%, rgba(0, 229, 255, 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 85% 85%, rgba(124, 58, 237, 0.12) 0%, transparent 60%);
+      radial-gradient(circle at 15% 15%, rgba(57, 255, 20, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 85% 85%, rgba(255, 0, 0, 0.12) 0%, transparent 60%);
     filter: blur(120px);
     animation: moveGradient 30s ease-in-out infinite;
   }
@@ -50,6 +50,14 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-neutral-700;
   }
+
+  a, button {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  a:hover, button:hover {
+    @apply transform scale-105;
+  }
 }
 
 @keyframes moveGradient {
@@ -59,12 +67,12 @@
     filter: blur(120px);
   }
   33% {
-    transform: translate(-2%, 2%) scale(1.1);
+    transform: translate(-4%, 4%) scale(1.2);
     opacity: 0.9;
     filter: blur(140px);
   }
   66% {
-    transform: translate(2%, -2%) scale(0.95);
+    transform: translate(4%, -4%) scale(0.9);
     opacity: 0.7;
     filter: blur(100px);
   }
@@ -92,10 +100,30 @@
   0% {
     transform: translateY(0) scale(1);
     filter: blur(0);
+    box-shadow: 0 0 0 rgba(57, 255, 20, 0);
   }
   100% {
     transform: translateY(-12px) scale(1.02);
     filter: blur(0);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.2);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.2),
+                0 0 10px rgba(57, 255, 20, 0.2),
+                0 0 15px rgba(57, 255, 20, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.4),
+                0 0 20px rgba(57, 255, 20, 0.4),
+                0 0 30px rgba(57, 255, 20, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(57, 255, 20, 0.2),
+                0 0 10px rgba(57, 255, 20, 0.2),
+                0 0 15px rgba(57, 255, 20, 0.2);
   }
 }
 
@@ -133,8 +161,8 @@
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.15) 0%, transparent 70%),
-    radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+    radial-gradient(circle at 20% 20%, rgba(57, 255, 20, 0.15) 0%, transparent 70%),
+    radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.15) 0%, transparent 70%);
   filter: blur(60px);
   animation: moveGradient 15s ease-in-out infinite;
 }
@@ -147,7 +175,7 @@
 
 .brand-text {
   @apply text-6xl font-bold font-display;
-  background: linear-gradient(135deg, #00E5FF, #7C3AED);
+  background: linear-gradient(135deg, #39FF14, #FF0000);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -160,19 +188,24 @@
   background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.4));
   backdrop-filter: blur(16px);
   @apply rounded-lg p-8 relative h-full flex flex-col border-2 border-neutral-800;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, box-shadow, border-color, background;
 }
 
 .card:hover {
   @apply border-accent-500;
   background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.5));
   backdrop-filter: blur(24px);
-  animation: cardHover 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: cardHover 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.card:hover .icon {
+  animation: glowPulse 2s infinite;
 }
 
 .section-title {
   @apply text-4xl font-display font-bold text-center mb-16;
-  background: linear-gradient(135deg, #00E5FF, #7C3AED);
+  background: linear-gradient(135deg, #39FF14, #FF0000);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -184,21 +217,22 @@
   background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.4));
   backdrop-filter: blur(16px);
   @apply relative border-2 border-neutral-800 rounded-lg;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, box-shadow, border-color, background;
 }
 
 .cyber-border:hover {
   @apply border-accent-500;
   background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.5));
   backdrop-filter: blur(24px);
-  animation: cardHover 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: cardHover 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 [data-animate] {
   opacity: 0;
   transform: translateY(40px);
   filter: blur(10px);
-  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 [data-animate].animate-in {
