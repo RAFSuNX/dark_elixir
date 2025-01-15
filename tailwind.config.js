@@ -18,21 +18,15 @@ export default {
         'h3': ['1.75rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
         'h4': ['1.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
         'h5': ['1.25rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
-        // Body typography
-        'xl': ['1.25rem', { lineHeight: '1.6', letterSpacing: '0' }],
-        'lg': ['1.125rem', { lineHeight: '1.6', letterSpacing: '0' }],
-        'base': ['1rem', { lineHeight: '1.6', letterSpacing: '0' }],
-        'sm': ['0.875rem', { lineHeight: '1.6', letterSpacing: '0' }],
-        'xs': ['0.75rem', { lineHeight: '1.6', letterSpacing: '0' }],
       },
       colors: {
         accent: {
-          500: '#39FF14', // Neon Green
+          500: '#39FF14',
           400: '#4DFF33',
           300: '#66FF4D',
         },
         highlight: {
-          500: '#FF0000', // Neon Red
+          500: '#FF0000',
           400: '#FF1A1A',
           300: '#FF3333',
         },
@@ -49,19 +43,43 @@ export default {
           50: '#F5F5F5',
         }
       },
-      container: {
-        center: true,
-        padding: '1rem',
-        screens: {
-          sm: '640px',
-          md: '768px',
-          lg: '1024px',
-          xl: '1280px',
+      animation: {
+        'gradient-x': 'gradient-x 15s ease infinite',
+        'gradient-y': 'gradient-y 15s ease infinite',
+        'gradient-xy': 'gradient-xy 15s ease infinite',
+      },
+      keyframes: {
+        'gradient-y': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'center top'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'center center'
+          }
         },
-      },
-      transitionTimingFunction: {
-        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
-      },
+        'gradient-x': {
+          '0%, 100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        },
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        }
+      }
     },
   },
   plugins: [],

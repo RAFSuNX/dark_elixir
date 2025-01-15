@@ -220,38 +220,163 @@
 
 /* Component Styles */
 .card {
-  background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.4));
-  backdrop-filter: blur(16px);
-  @apply rounded-lg p-8 relative h-full flex flex-col border-2 border-neutral-800;
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform, box-shadow, border-color, background;
+  @apply rounded-2xl p-8 relative h-full flex flex-col;
+  background: linear-gradient(165deg, rgba(26, 26, 26, 0.6), rgba(13, 13, 13, 0.8));
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(57, 255, 20, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .card:hover {
-  @apply border-accent-500;
-  background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.5));
-  backdrop-filter: blur(24px);
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(57, 255, 20, 0.1);
+  transform: translateY(-8px);
+  border-color: rgba(57, 255, 20, 0.3);
+  box-shadow: 
+    0 12px 48px rgba(57, 255, 20, 0.2),
+    0 0 0 1px rgba(57, 255, 20, 0.1);
+}
+
+.cyber-border {
+  @apply relative rounded-2xl p-1 overflow-hidden;
+  background: linear-gradient(135deg, #39FF14, #FF0000);
+}
+
+.cyber-border::before {
+  content: '';
+  @apply absolute inset-[1px] rounded-2xl;
+  background: #000000;
+}
+
+.glass-card {
+  @apply rounded-xl relative;
+  background: rgba(26, 26, 26, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(57, 255, 20, 0.1);
 }
 
 .section-title {
-  @apply font-display text-h1 font-bold text-center mb-16;
+  @apply font-display text-4xl md:text-5xl font-bold text-center mb-16 relative;
   background: linear-gradient(135deg, #39FF14, #FF0000);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+.section-title::after {
+  content: '';
+  @apply absolute left-1/2 -translate-x-1/2 bottom-0 w-24 h-1 rounded-full;
+  background: linear-gradient(90deg, #39FF14, #FF0000);
+  opacity: 0.5;
+}
+
 [data-animate] {
   opacity: 0;
   transform: translateY(40px);
-  filter: blur(10px);
   transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 [data-animate].animate-in {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
+}
+
+/* Section Specific Styles */
+.features-grid {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+  perspective: 1000px;
+}
+
+.features-grid > div {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.features-grid > div:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+.devices-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.team-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+.team-member-card {
+  @apply relative overflow-hidden;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.team-member-card:hover {
+  transform: translateY(-8px);
+}
+
+.team-member-card::before {
+  content: '';
+  @apply absolute inset-0;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.8));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-member-card:hover::before {
+  opacity: 1;
+}
+
+/* Timeline Styles */
+.timeline-item {
+  @apply relative pl-8 pb-12 last:pb-0;
+}
+
+.timeline-item::before {
+  content: '';
+  @apply absolute left-3 top-8 w-px h-full bg-accent-500/20;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-dot {
+  @apply absolute left-[-1.85rem] top-3 w-4 h-4 rounded-full bg-neutral-900 border-2 border-accent-500;
+  box-shadow: 0 0 0 4px rgba(57, 255, 20, 0.1);
+}
+
+/* Navigation Styles */
+.nav-link {
+  @apply relative text-neutral-400 hover:text-accent-500 transition-colors;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute left-0 -bottom-1 w-full h-0.5 bg-accent-500 scale-x-0 origin-left transition-transform duration-300;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Button Styles */
+.cyber-button {
+  @apply relative px-8 py-3 rounded-lg font-display text-neutral-900 overflow-hidden;
+  background: linear-gradient(135deg, #39FF14, #4DFF33);
+  transition: all 0.3s ease;
+}
+
+.cyber-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(57, 255, 20, 0.3);
+}
+
+.cyber-button::before {
+  content: '';
+  @apply absolute inset-0;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cyber-button:hover::before {
+  opacity: 1;
 }
