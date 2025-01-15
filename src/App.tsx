@@ -1,5 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Smartphone, Github, MessageCircle, Instagram, Youtube, ExternalLink, Download, Zap, Palette, Rocket, Check, Menu, X } from 'lucide-react';
+import { 
+  Smartphone, 
+  Github, 
+  MessageSquare, 
+  Instagram, 
+  Youtube, 
+  ExternalLink, 
+  Download, 
+  Zap, 
+  Palette, 
+  Rocket, 
+  Check, 
+  Menu, 
+  X,
+  Hash
+} from 'lucide-react';
+
 import romsData from './data/roms.json';
 import teamData from './data/team.json';
 import featuresData from './data/features.json';
@@ -50,10 +66,11 @@ export default function App() {
   const getSocialIcon = (socialType: string) => {
     const socialIcons = {
       github: Github,
-      telegram: MessageCircle,
+      telegram: MessageSquare,
       instagram: Instagram,
       youtube: Youtube,
-      discord: ExternalLink
+      discord: Hash,
+      link: ExternalLink
     };
     return socialIcons[socialType as keyof typeof socialIcons];
   };
@@ -166,7 +183,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Rest of the sections remain unchanged */}
         {/* Devices Section */}
         <section id="devices" className="container mx-auto px-4 py-24" data-animate>
           <h2 className="section-title">Supported Devices</h2>
@@ -188,7 +204,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-accent-500 hover:text-accent-400"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <MessageSquare className="w-4 h-4" />
                     Join Telegram Group
                   </a>
                 </div>
@@ -376,14 +392,14 @@ export default function App() {
               <div>
                 <h4 className="text-lg font-semibold mb-4">Community</h4>
                 <div className="space-y-2">
-                  <a href="#" className="block text-neutral-400 hover:text-accent-500 transition-colors">
-                    Telegram Group
+                  <a href="#" className="block text-neutral-400 hover:text-accent-500 transition-colors inline-flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4" /> Telegram Group
                   </a>
-                  <a href="#" className="block text-neutral-400 hover:text-accent-500 transition-colors">
-                    GitHub
+                  <a href="#" className="block text-neutral-400 hover:text-accent-500 transition-colors inline-flex items-center gap-2">
+                    <Github className="w-4 h-4" /> GitHub
                   </a>
-                  <a href="#" className="block text-neutral-400 hover:text-accent-500 transition-colors">
-                    Discord Server
+                  <a href="#" className="block text-neutral-400 hover:text-accent-500 transition-colors inline-flex items-center gap-2">
+                    <Hash className="w-4 h-4" /> Discord Server
                   </a>
                 </div>
               </div>
