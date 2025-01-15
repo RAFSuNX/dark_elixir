@@ -16,14 +16,14 @@ export default {
           500: '#234B78',
         },
         accent: {
-          500: '#00E5FF',
-          400: '#33EAFF',
-          300: '#66EFFF',
+          500: '#00B5CC',
+          400: '#00C8E3',
+          300: '#33D9F0',
         },
         highlight: {
-          500: '#7C3AED',
-          400: '#9061FF',
-          300: '#A585FF',
+          500: '#6B30D1',
+          400: '#7C45E3',
+          300: '#8D5AE6',
         },
         neutral: {
           900: '#0A0A0A',
@@ -48,20 +48,8 @@ export default {
           xl: '1280px',
         },
       },
-      animation: {
-        'text-shimmer': 'text-shimmer 3s ease-in-out infinite',
-      },
-      keyframes: {
-        'text-shimmer': {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center',
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center',
-          },
-        },
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },

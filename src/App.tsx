@@ -23,7 +23,28 @@ export default function App() {
       setLoading(false);
     }, 3000);
 
-    return () => clearTimeout(timer);
+    // Add intersection observer for animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    document.querySelectorAll('[data-animate]').forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   const getSocialIcon = (socialType: string) => {
@@ -60,7 +81,7 @@ export default function App() {
 
               {/* Mobile Menu Button */}
               <button 
-                className="md:hidden text-neutral-400 hover:text-accent-500"
+                className="md:hidden text-neutral-400 hover:text-accent-500 transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -101,7 +122,7 @@ export default function App() {
         </nav>
 
         {/* Hero Section */}
-        <section id="home" className="container mx-auto px-4 pt-32 pb-24 mt-16">
+        <section id="home" className="container mx-auto px-4 pt-32 pb-24 mt-16" data-animate>
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-6xl md:text-7xl font-display font-bold mb-8 leading-tight">
               <span className="bg-gradient-to-r from-accent-500 via-accent-400 to-highlight-500 text-transparent bg-clip-text">
@@ -121,19 +142,21 @@ export default function App() {
         </section>
 
         {/* Features Section */}
-        <section id="features" className="container mx-auto px-4 py-24">
+        <section id="features" className="container mx-auto px-4 py-24" data-animate>
           <h2 className="section-title">Features</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {featuresData.features.map((feature, index) => {
               const Icon = icons[feature.icon as keyof typeof icons];
               return (
-                <div key={index} className="h-full">
+                <div key={index} className="h-full" style={{ animationDelay: `${index * 150}ms` }}>
                   <a href={feature.link} className="block h-full">
-                    <div className="card hover:border-accent-500 transition-colors group">
-                      <Icon className="w-12 h-12 text-accent-500 mb-6 group-hover:scale-110 transition-transform" />
-                      <h3 className="text-2xl font-display font-bold mb-4 text-accent-500">
-                        {feature.title}
-                      </h3>
+                    <div className="card group">
+                      <div className="flex items-center gap-4 mb-6">
+                        <Icon className="w-12 h-12 text-accent-500 transition-transform duration-500 ease-out group-hover:scale-110" />
+                        <h3 className="text-2xl font-display font-bold text-accent-500 group-hover:text-accent-400 transition-colors">
+                          {feature.title}
+                        </h3>
+                      </div>
                       <p className="text-neutral-300">{feature.description}</p>
                     </div>
                   </a>
@@ -143,8 +166,9 @@ export default function App() {
           </div>
         </section>
 
+        {/* Rest of the sections remain unchanged */}
         {/* Devices Section */}
-        <section id="devices" className="container mx-auto px-4 py-24">
+        <section id="devices" className="container mx-auto px-4 py-24" data-animate>
           <h2 className="section-title">Supported Devices</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {devicesData.devices.map((device, index) => (
@@ -174,7 +198,7 @@ export default function App() {
         </section>
 
         {/* ROMs Section */}
-        <section id="roms" className="container mx-auto px-4 py-24">
+        <section id="roms" className="container mx-auto px-4 py-24" data-animate>
           <h2 className="section-title">Available ROMs</h2>
           <div className="max-w-4xl mx-auto">
             {romsData.roms.map((rom, index) => (
@@ -185,10 +209,7 @@ export default function App() {
                 }`}
               >
                 <div className="relative">
-                  {/* Connection dot */}
                   <div className="absolute left-[-1.85rem] top-3 w-4 h-4 rounded-full bg-neutral-900 border-2 border-accent-500" />
-                  
-                  {/* ROM Card */}
                   <div className="card hover:border-accent-500 transition-colors">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div>
@@ -214,7 +235,7 @@ export default function App() {
         </section>
 
         {/* Team Section */}
-        <section id="team" className="container mx-auto px-4 py-24">
+        <section id="team" className="container mx-auto px-4 py-24" data-animate>
           <h2 className="section-title">Our Team</h2>
           <p className="text-neutral-300 text-center mb-16 max-w-3xl mx-auto">
             Elite developers pushing the boundaries of Android customization
@@ -271,7 +292,7 @@ export default function App() {
         </section>
 
         {/* Donation Section */}
-        <section id="donate" className="container mx-auto px-4 py-24">
+        <section id="donate" className="container mx-auto px-4 py-24" data-animate>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl text-center font-bold mb-16">
               <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 text-transparent bg-clip-text">
@@ -287,9 +308,7 @@ export default function App() {
                     Donating a server to developers working on custom ROMs can make a big difference. Custom 
                     ROM development needs powerful resources for compiling and testing code. By providing a 
                     server, you help speed up development, improve the quality of the ROMs, and enable more 
-                    innovative features. This support not only benefits developers by boosting their efficiency 
-                    but also contributes to the broader tech community by advancing open-source projects and 
-                    enhancing user experiences.
+                    innovative features.
                   </p>
                   
                   <div className="space-y-3">

@@ -20,49 +20,106 @@
     bottom: 0;
     z-index: -1;
     background: 
-      radial-gradient(circle at 0% 0%, rgba(0, 229, 255, 0.15) 20%, transparent 70%),
-      radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.15) 20%, transparent 70%);
-    filter: blur(80px);
-    animation: moveGradient 15s ease infinite;
+      radial-gradient(circle at 0% 0%, rgba(0, 229, 255, 0.08) 20%, transparent 70%),
+      radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.08) 20%, transparent 70%);
+    filter: blur(140px);
+    animation: moveGradient 30s ease-in-out infinite;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display text-neutral-50 tracking-tight font-bold;
   }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-800 rounded-full transition-colors duration-300;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-700;
+  }
 }
 
+/* Enhanced gradient animation */
 @keyframes moveGradient {
   0% {
     transform: translate(0, 0) scale(1);
+    opacity: 0.5;
   }
-  33% {
+  25% {
     transform: translate(-2%, 2%) scale(1.1);
+    opacity: 0.7;
   }
-  66% {
-    transform: translate(2%, -2%) scale(0.9);
+  50% {
+    transform: translate(1%, -1%) scale(0.95);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-1%, -2%) scale(1.05);
+    opacity: 0.7;
   }
   100% {
     transform: translate(0, 0) scale(1);
+    opacity: 0.5;
   }
 }
 
+/* Improved fade animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes fadeOut {
   from {
     opacity: 1;
+    transform: scale(1);
   }
   to {
     opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 
@@ -78,39 +135,65 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: fadeOut 0.5s ease-in-out forwards;
+  animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   animation-delay: 2.5s;
 }
 
 .welcome-text {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
 .brand-text {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+             float 6s ease-in-out infinite;
   animation-delay: 0.5s;
   opacity: 0;
 }
 
-.gradient-text {
-  @apply text-accent-500;
+.card {
+  @apply bg-neutral-800/40 backdrop-blur-md rounded-lg p-8 relative h-full flex flex-col border border-neutral-800;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
 }
 
-.card {
-  @apply bg-neutral-800/80 backdrop-blur-md rounded-lg p-8 relative h-full flex flex-col border border-neutral-700;
+.card:hover {
+  @apply border-neutral-700 bg-neutral-800/60;
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
-  @apply text-4xl font-display font-bold text-center mb-16 text-accent-500;
+  @apply text-3xl font-display font-bold text-center mb-16 text-neutral-100;
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
 }
 
 .cyber-border {
-  @apply relative border border-neutral-700 rounded-lg backdrop-blur-md bg-neutral-800/80;
+  @apply relative border border-neutral-800 rounded-lg backdrop-blur-md bg-neutral-800/40;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cyber-border:hover {
+  @apply border-neutral-700 bg-neutral-800/60;
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
 }
 
 #devices, #team {
   @apply relative;
-  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.8), rgba(10, 10, 10, 0.8));
+  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.4), rgba(10, 10, 10, 0.4));
   backdrop-filter: blur(12px);
+}
+
+/* Animate elements when they come into view */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
