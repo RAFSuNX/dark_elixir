@@ -6,7 +6,8 @@
 
 @layer base {
   body {
-    @apply bg-neutral-900 text-neutral-50 font-body antialiased;
+    @apply text-neutral-50 font-body antialiased;
+    background-color: #000000;
     position: relative;
     overflow-x: hidden;
   }
@@ -20,8 +21,8 @@
     bottom: 0;
     z-index: -1;
     background: 
-      radial-gradient(circle at 0% 0%, rgba(0, 229, 255, 0.08) 20%, transparent 70%),
-      radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.08) 20%, transparent 70%);
+      radial-gradient(circle at 0% 0%, rgba(0, 229, 255, 0.04) 20%, transparent 70%),
+      radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.04) 20%, transparent 70%);
     filter: blur(140px);
     animation: moveGradient 30s ease-in-out infinite;
   }
@@ -30,18 +31,16 @@
     @apply font-display text-neutral-50 tracking-tight font-bold;
   }
 
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Hide scrollbar but keep functionality */
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-neutral-900;
+    background-color: #000000;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -53,73 +52,78 @@
   }
 }
 
-/* Enhanced gradient animation */
+/* Loading screen animations */
+@keyframes loadingFadeOut {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(20px);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    pointer-events: none;
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0) scale(0.95);
+    filter: blur(5px);
+  }
+  50% {
+    transform: translateY(-10px) scale(1);
+    filter: blur(0px);
+  }
+  100% {
+    transform: translateY(0) scale(0.95);
+    filter: blur(5px);
+  }
+}
+
 @keyframes moveGradient {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   25% {
     transform: translate(-2%, 2%) scale(1.1);
-    opacity: 0.7;
+    opacity: 0.4;
   }
   50% {
     transform: translate(1%, -1%) scale(0.95);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   75% {
     transform: translate(-1%, -2%) scale(1.05);
-    opacity: 0.7;
+    opacity: 0.4;
   }
   100% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 
-/* Improved fade animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes float {
+@keyframes pulseGradient {
   0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
+    opacity: 0.2;
+    transform: scale(0.95);
   }
   100% {
-    transform: translateY(0px);
+    opacity: 0.4;
+    transform: scale(1.05);
   }
 }
 
@@ -129,64 +133,85 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #0A0A0A;
+  background-color: #000000;
   z-index: 50;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: loadingFadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   animation-delay: 2.5s;
+  backdrop-filter: blur(20px);
+}
+
+.loading-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(124, 58, 237, 0.04) 0%, transparent 50%);
+  filter: blur(80px);
+  z-index: -1;
+  animation: pulseGradient 4s ease-in-out infinite alternate;
 }
 
 .welcome-text {
-  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  @apply text-neutral-400 font-display;
+  animation: textReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
+  position: relative;
 }
 
 .brand-text {
-  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards,
-             float 6s ease-in-out infinite;
+  @apply text-6xl font-bold font-display;
+  background: linear-gradient(to right, #00E5FF, #7C3AED);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: 
+    textReveal 1s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+    logoFloat 4s ease-in-out infinite;
   animation-delay: 0.5s;
   opacity: 0;
+  position: relative;
 }
 
 .card {
-  @apply bg-neutral-800/40 backdrop-blur-md rounded-lg p-8 relative h-full flex flex-col border border-neutral-800;
+  background-color: rgba(26, 26, 26, 0.3);
+  backdrop-filter: blur(12px);
+  @apply rounded-lg p-8 relative h-full flex flex-col border border-neutral-800;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateZ(0);
 }
 
 .card:hover {
-  @apply border-neutral-700 bg-neutral-800/60;
+  @apply border-neutral-700;
+  background-color: rgba(26, 26, 26, 0.4);
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
 }
 
 .section-title {
   @apply text-3xl font-display font-bold text-center mb-16 text-neutral-100;
-  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: textReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
 .cyber-border {
-  @apply relative border border-neutral-800 rounded-lg backdrop-blur-md bg-neutral-800/40;
+  background-color: rgba(26, 26, 26, 0.3);
+  @apply relative border border-neutral-800 rounded-lg backdrop-blur-md;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cyber-border:hover {
-  @apply border-neutral-700 bg-neutral-800/60;
+  @apply border-neutral-700;
+  background-color: rgba(26, 26, 26, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.3);
 }
 
-#devices, #team {
-  @apply relative;
-  background: linear-gradient(to bottom, rgba(26, 26, 26, 0.4), rgba(10, 10, 10, 0.4));
-  backdrop-filter: blur(12px);
-}
-
-/* Animate elements when they come into view */
 [data-animate] {
   opacity: 0;
   transform: translateY(20px);
