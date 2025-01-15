@@ -39,7 +39,6 @@ export default function App() {
       setLoading(false);
     }, 3000);
 
-    // Add intersection observer for animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -96,7 +95,6 @@ export default function App() {
                 Dark Elixir
               </a>
 
-              {/* Mobile Menu Button */}
               <button 
                 className="md:hidden text-neutral-400 hover:text-accent-500 transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -104,7 +102,6 @@ export default function App() {
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
 
-              {/* Desktop Navigation */}
               <div className="hidden md:flex gap-8 font-display text-sm tracking-wide">
                 {navItems.map((item) => (
                   <a 
@@ -118,7 +115,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Mobile Navigation */}
             {isMenuOpen && (
               <div className="md:hidden mt-4 py-4 border-t border-neutral-800">
                 <div className="flex flex-col gap-4">
@@ -229,14 +225,29 @@ export default function App() {
                   <div className="card hover:border-accent-500 transition-colors">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                       <div>
-                        <h3 className="text-xl font-bold mb-2">{rom.title}</h3>
-                        <p className="text-accent-500 text-sm mb-4">{rom.date}</p>
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-xl font-bold">{rom.title}</h3>
+                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                            rom.status === 'Official' 
+                              ? 'bg-accent-500/20 text-accent-300' 
+                              : 'bg-highlight-500/20 text-highlight-300'
+                          }`}>
+                            {rom.status}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-4 text-sm text-neutral-400 mb-4">
+                          <span>Version {rom.version}</span>
+                          <span>•</span>
+                          <span>{rom.date}</span>
+                          <span>•</span>
+                          <span>By {rom.maintainer}</span>
+                        </div>
                         <p className="text-neutral-300">{rom.description}</p>
                       </div>
                       <div className="flex-shrink-0">
                         <a 
                           href={config.download.primary.url}
-                          className="inline-flex items-center gap-2 bg-accent-500/10 text-accent-500 px-4 py-2 rounded-lg hover:bg-accent-500/20 transition-colors"
+                          className="inline-flex items-center gap-2 bg-accent-500/10 text-accent-300 px-4 py-2 rounded-lg hover:bg-accent-500/20 transition-colors"
                         >
                           <Download className="w-4 h-4" />
                           Download
@@ -311,7 +322,7 @@ export default function App() {
         <section id="donate" className="container mx-auto px-4 py-24" data-animate>
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl text-center font-bold mb-16">
-              <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-accent-500 via-accent-400 to-highlight-500 text-transparent bg-clip-text">
                 Support the minds for their Hardwork
               </span>
             </h2>

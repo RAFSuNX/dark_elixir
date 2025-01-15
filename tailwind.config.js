@@ -8,11 +8,9 @@ export default {
         body: ['Plus Jakarta Sans', 'sans-serif'],
       },
       fontSize: {
-        // Display typography
         'd1': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         'd2': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
         'd3': ['3rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
-        // Heading typography
         'h1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
         'h2': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
         'h3': ['1.75rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
@@ -21,63 +19,26 @@ export default {
       },
       colors: {
         accent: {
-          500: '#39FF14',
-          400: '#4DFF33',
-          300: '#66FF4D',
+          500: '#00FF66', // Brighter, more vibrant green
+          400: '#33FF85',
+          300: '#66FFA3',
         },
         highlight: {
-          500: '#FF0000',
-          400: '#FF1A1A',
-          300: '#FF3333',
+          500: '#FF3366', // More vibrant red
+          400: '#FF4D7F',
+          300: '#FF6699',
         },
         neutral: {
-          900: '#000000',
+          900: '#0A0A0A', // Darker black for better contrast
           800: '#1A1A1A',
           700: '#2A2A2A',
-          600: '#3D3D3D',
-          500: '#4D4D4D',
-          400: '#666666',
-          300: '#808080',
-          200: '#999999',
-          100: '#B3B3B3',
+          600: '#404040',
+          500: '#666666',
+          400: '#808080',
+          300: '#A3A3A3', // Lighter text for better readability
+          200: '#CCCCCC',
+          100: '#E5E5E5',
           50: '#F5F5F5',
-        }
-      },
-      animation: {
-        'gradient-x': 'gradient-x 15s ease infinite',
-        'gradient-y': 'gradient-y 15s ease infinite',
-        'gradient-xy': 'gradient-xy 15s ease infinite',
-      },
-      keyframes: {
-        'gradient-y': {
-          '0%, 100%': {
-            'background-size': '400% 400%',
-            'background-position': 'center top'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'center center'
-          }
-        },
-        'gradient-x': {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          }
-        },
-        'gradient-xy': {
-          '0%, 100%': {
-            'background-size': '400% 400%',
-            'background-position': 'left center'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          }
         }
       }
     },

@@ -3,22 +3,34 @@
     {
       "title": "Project Matrixx",
       "date": "EVERY MONTH OF 2024",
-      "description": "A sleek and intuitive custom ROM, seamlessly built upon crDroid. Unlock enhanced performance, streamlined customization, and a user-friendly interface."
+      "description": "A sleek and intuitive custom ROM, seamlessly built upon crDroid. Unlock enhanced performance, streamlined customization, and a user-friendly interface.",
+      "status": "Official",
+      "version": "1.0",
+      "maintainer": "Arijit Saha"
     },
     {
       "title": "TenX OS",
       "date": "EVERY MONTH OF 2024",
-      "description": "Version 3.1.0 propels you into the cosmos with faster processing speeds, enhanced customization options, and new cosmic-themed visual elements."
+      "description": "Version 3.1.0 propels you into the cosmos with faster processing speeds, enhanced customization options, and new cosmic-themed visual elements.",
+      "status": "Official",
+      "version": "3.1.0",
+      "maintainer": "Guri~"
     },
     {
       "title": "EuclidOS",
       "date": "EVERY MONTH OF 2024",
-      "description": "Discover EuclidOS: a feature-rich, visually stunning custom firmware built on the Android Open Source Project."
+      "description": "Discover EuclidOS: a feature-rich, visually stunning custom firmware built on the Android Open Source Project.",
+      "status": "Unofficial",
+      "version": "2.5",
+      "maintainer": "Community"
     },
     {
       "title": "DroidX-UI",
       "date": "EVERY MONTH OF 2024",
-      "description": "Unleash the true potential of your phone with lightning-fast performance and seamless user experience."
+      "description": "Unleash the true potential of your phone with lightning-fast performance and seamless user experience.",
+      "status": "Official",
+      "version": "4.0",
+      "maintainer": "Ultron"
     }
   ]
 }
