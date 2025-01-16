@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply text-neutral-200 font-body antialiased text-base;
     background-color: #0A0A0A;
@@ -190,4 +194,9 @@
 [data-animate].animate-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Smooth Scrolling */
+.smooth-scroll {
+  @apply transition-all duration-500 ease-out;
 }

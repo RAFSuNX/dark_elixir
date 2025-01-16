@@ -35,6 +35,9 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Enable smooth scrolling
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
     const timer = setTimeout(() => {
       setLoading(false);
     }, 3000);
@@ -58,6 +61,7 @@ export default function App() {
 
     return () => {
       clearTimeout(timer);
+      document.documentElement.style.scrollBehavior = '';
       observer.disconnect();
     };
   }, []);
